@@ -1,0 +1,48 @@
+.cliente {
+    width: 90vw;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cliente .inputs form{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.cliente .inputs form input, select {
+    margin: 0 4px;
+}
+
+.cliente .inputs form .date {
+    background: none;
+    color: rgb(122, 122, 122);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.cliente .inputs button {
+    margin: 0 4px;
+}
+
+.cliente .table {
+    flex: 1;
+}
+
+.cliente .table button {
+    margin: 20px 0;
+    width: 180px;
+}
+
+.cliente .footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cliente .footerSum ul li {
+    display: flex;
+}
