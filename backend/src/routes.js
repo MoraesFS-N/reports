@@ -4,8 +4,8 @@ const routes = express.Router();
 const ClientController = require('./controllers/ClientController');
 
 //Rotas
-routes.get('/client', ClientController.index);
-routes.post('/clients', ClientController.create);
+routes.get('/clients', ClientController.index);
+routes.post('/client', ClientController.create);
 routes.delete('/clientes/:id', ClientController.delete);
 
 module.exports = routes;
