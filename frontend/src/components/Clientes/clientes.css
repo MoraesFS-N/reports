@@ -1,0 +1,64 @@
+.cliente .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.cliente .content .link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.cliente .content .link .filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cliente .content .link .filter input {
+    /* margin-left: 20px; */
+    width: 60px;
+    background: none;
+    border: none;
+}
+
+.cliente .content form {
+    display: flex;
+    width: 90vw;
+    margin-bottom: 50px;
+}
+
+.cliente .content form input:nth-child(1) {
+    width: 110px;
+    border: none;
+    background: none;
+    color: rgb(170, 170, 170);
+}
+
+.cliente .content form input:nth-child(2) {
+    width: 350px;
+}
+
+.cliente .content form input:nth-child(3) {
+    width: 150px;
+}
+
+
+.cliente .content form select {
+    width: 200px;
+    margin: 0 10px 0 0;
+}
+
+.cliente .content form button {
+    width: 150px;
+    margin: 0;
+}
+
+.print {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}

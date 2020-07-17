@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&family=Roboto:ital,wght@0,400;0,700;1,300&display=swap');
+
+:root {
+  --primary: #0A6CB4;
+  --secondary: #178DE2;
+  --tertiary: #EFEFEF;
+  --quaternary: #232323;
+  --quintinary: #636363;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+  font-size: 12pt;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18pt;
+  color: var(--quaternary);
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 14pt;
+  color: var(--quaternary);
+}
+
+button {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 5px;;
+  width:250px;
+  height: 40px;
+  color: white;
+  font-size: 12pt;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+
+  transition: 100ms ease-out;
+}
+
+button:hover {
+  filter: opacity(0.9);
+}
+
+input, select {
+  background: var(--white);
+  max-width:250px;
+  height: 40px;
+  color: var(--quaternary);
+  font-size: 12pt;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 0.5px solid #a8a8a8;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  padding-left: 15px;
+  outline: 0;
+  margin-right: 10px;
+}
+
+form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+form select option {
+  margin: 10px;
+  background: white;
+  color: #747474;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+
+  transition: 100ms ease-out;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+table tr {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
+
+table tr:nth-child(odd) {
+  background: #FBFBFB;
+}
+
+table tr:nth-child(even) {
+  background: #EDEDED;
+}
+
+table td {
+  padding-left: 28px;
+  color: var(--quaternary);
+  font-size: 12pt;
+  height: 40px;
+}
+
+ul {
+  list-style: none;
+}

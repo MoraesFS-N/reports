@@ -33,6 +33,7 @@ module.exports ={
                 return res.json({name})
 
         },
+        
         async delete(req, res){
             const { id } = req.params;
 

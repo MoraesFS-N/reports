@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory} from 'react-router-dom';
 import api from '../../services/api';
-import {useHistory} from 'react-router-dom';
-import Header from '../header/index';
-import './style.css';
-import { Delete } from '@material-ui/icons';
+import './clientes.css';
+import Header from '../Header';
+import Footer from '../Footer';
+import {ReactComponent as Remove} from '../../assets/remove.svg';
+import {ReactComponent as Back} from '../../assets/back.svg';
 
-export default function DeliveryClient() {
+export default function Client() {
 
     const [date, setDate] = useState('');
     const [name, setName] = useState('');
@@ -13,13 +15,10 @@ export default function DeliveryClient() {
     const [payment, setPayment] = useState('');
     const [delivery, setDelivery] = useState('');
 
-
     const history = useHistory();
 
     async function handleData(event){
-    
         event.preventDefault();
-
         const data = {
             date,
             name,
@@ -27,43 +26,61 @@ export default function DeliveryClient() {
             payment,
             delivery
         }
-
+    
         try {
-            await api.post('/clients', data);
+          await api.post('/client', data);
+          history.push('/clients');
 
-            history.push('/client');
+        } catch (error) {
+            alert('Falha no cadastro tente novamente');
+        }
+    }
 
-        } catch (err) {
-            alert('Erro ao cadastrar');
+    async function handleDelete(id) {
+        try {
+            await api.delete(`client/${id}`,{});
+
+            setClients(clients.filter(client => client.id !== id));
+        } catch (error) {
+            alert('Erro ao deletar, tente novamente');
         }
     }
 
     const [clients, setClients] = useState([]);
-
+    
     useEffect( () => { 
-        api.get('/client').then(response => { 
+        api.get('/clients').then(response => { 
             setClients(response.data)
         })
-    });
+    });    
 
-    
     return(
         <div className="cliente">
 
-            <Header
-                tittle="Tele-entrega Clientes"
-                link="voltar"
-                href="#"
-            />
-            
-            <div className="inputs">
+            <Header />
+
+            <div className="content">
+
+                <h2><b>TELE ENTREGA</b>CLIENTES</h2>
+
+                <div className="link">
+
+                    <a href="/home"><Back /> Voltar</a>
+
+                    <div className="filter">
+                        <p>FIltro por data: </p>
+                        <input type="date"/>
+                    </div>
+                </div>
+
                 <form onSubmit={handleData}>
 
-                    <input  onChange={e=> setDate(e.target.value)} />
+                    <input value={date} 
+                            onChange={e=> setDate(e.target.value)} />
                     
                     <input placeholder="Nome" 
                            value={name} 
-                           onChange={e=>setName(e.target.name)} />
+                           onChange={e=>setName(e.target.value)} />
 
                     <input placeholder="Valor" 
                            value={value}
@@ -101,35 +118,18 @@ export default function DeliveryClient() {
                                 <td>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(client.value)}</td>
                                 <td>{client.payment}</td>
                                 <td>{client.delivery}</td>
-                                <td><Delete /></td>
+                                <td onClick={() => handleDelete(client.id)}><Remove /></td>
                             </tr>
                         ))}
                 </table>
-            </div>
-            
-            <div className="footer">
-                <div className="footerSum">
-                    <ul>
-                        {clients.map( client => (
-                            <li></li>
-                        ))}
-                        <li>Total
-                            <div>R$8,00</div>
-                        </li>
-                    </ul>
-                </div>
-                <div className="footerSum">
-                <button>Gerar relatório</button>        
-                    <ul>
-                        <li>À vista
-                            <div className="value">R$8,00</div>
-                        </li>
-                        <li>Total
-                            <div>R$8,00</div>
-                        </li>
-                    </ul>
+                <div className="print">
+                    <button>Imprimir relatório</button>
                 </div>
             </div>
+
+            <Footer />
+
         </div>
     );
+    
 };

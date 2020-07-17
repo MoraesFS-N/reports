@@ -1,13 +1,15 @@
 import React from 'react';
-import './style.css';
-import { Link } from 'react-router-dom';
+import './header.css';
+import Logo from '../../assets/logo.svg';
 
-export default function Header(props) {
+export default function Header() {
 
     return(
         <div className="header">
-            <h1>{props.tittle}</h1>
-            <Link href={props.href}>{props.link}</Link>
+            <a href="/">
+                <img src={Logo} alt="logo"/>
+            </a>
+            <div className="backContainer"></div>
         </div>
     );
     

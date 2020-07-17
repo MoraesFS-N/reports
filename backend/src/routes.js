@@ -6,6 +6,6 @@ const ClientController = require('./controllers/ClientController');
 //Rotas
 routes.get('/clients', ClientController.index);
 routes.post('/client', ClientController.create);
-routes.delete('/clientes/:id', ClientController.delete);
+routes.delete('/client/:id', ClientController.delete);
 
 module.exports = routes;

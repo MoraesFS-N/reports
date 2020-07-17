@@ -1,0 +1,33 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.login .form {
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.login .form label {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.login .form label input {
+    margin-top: 10px;
+    width: 350px;
+}
+
+.login .form button {
+    margin: 30px auto;
+    width: 250px;
+}
+
+.login .form button a {
+    color: var(--white);
+}

@@ -1,0 +1,18 @@
+.header{
+    display: flex;
+}
+
+.header a {
+    margin: 3vh auto 0 auto;
+}
+
+.header .backContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 35vh;
+    width: 100vw;
+    background: #EFEFEF;
+    z-index: -1;
+    margin: 0 auto;
+}
