@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useHistory} from 'react-router-dom';
 import api from '../../services/api';
 import './clientes.css';
+import { Link } from 'react-router-dom';
+
 import Header from '../Header';
 import Footer from '../Footer';
+
 import {ReactComponent as Remove} from '../../assets/remove.svg';
 import {ReactComponent as Back} from '../../assets/back.svg';
 
@@ -19,6 +22,11 @@ export default function Client() {
 
     async function handleData(event){
         event.preventDefault();
+        
+        var date = new Date();
+        date.toISOString().split('T')
+
+
         const data = {
             date,
             name,
@@ -46,10 +54,13 @@ export default function Client() {
         }
     }
 
+    //Tentativa Paginação -- Darlan
     const [clients, setClients] = useState([]);
+    const [total, setTotal] = useState(0);
     
     useEffect( () => { 
         api.get('/clients').then(response => { 
+            setTotal(response.headers['x-total-count'])
             setClients(response.data)
         })
     });    
@@ -65,7 +76,7 @@ export default function Client() {
 
                 <div className="link">
 
-                    <a href="/home"><Back /> Voltar</a>
+                    <Link to="/home"><Back /> Voltar</Link>
 
                     <div className="filter">
                         <p>FIltro por data: </p>
@@ -76,7 +87,8 @@ export default function Client() {
                 <form onSubmit={handleData}>
 
                     <input value={date} 
-                            onChange={e=> setDate(e.target.value)} />
+                            onChange={e=> setDate(e.target.value)} 
+                            disabled />
                     
                     <input placeholder="Nome" 
                            value={name} 
